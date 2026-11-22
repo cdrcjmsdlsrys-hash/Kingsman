@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kingsman — Bespoke Tailoring Atelier</title>
+  <meta name="description" content="Kingsman is a modern heritage tailoring atelier. Bespoke suits, made-to-measure garments and expert alterations, crafted by hand." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Kingsman home">
+        <span class="logo__mark">K</span>
+        <span class="logo__word">Kingsman</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#fabrics">Fabrics</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#booking" class="btn btn--small">Book a Fitting</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__media">
+        <img src="assets/images/pattern.jpg" alt="Tailor drafting a pattern on kraft paper with a pencil" />
+      </div>
+      <div class="container hero__content">
+        <p class="eyebrow reveal">Bespoke · Made to Measure · Alterations</p>
+        <h1 class="hero__title reveal">Cut by hand.<br /><em>Made for you.</em></h1>
+        <p class="hero__lead reveal">A modern heritage atelier where every garment begins with a conversation, a tape measure and a sharp pencil.</p>
+        <div class="hero__actions reveal">
+          <a href="#booking" class="btn">Book a Fitting</a>
+          <a href="#process" class="btn btn--ghost">Our Process</a>
+        </div>
+      </div>
+      <a href="#intro" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="intro section" id="intro">
+      <div class="container intro__grid">
+        <div class="intro__text">
+          <p class="eyebrow reveal">The Atelier</p>
+          <h2 class="section-title reveal">Quiet luxury,<br /><em>honest craft.</em></h2>
+          <p class="reveal">At Kingsman, we believe a well-made garment should feel like it was always yours. Our tailors combine time-honoured techniques with a contemporary eye — drafting each pattern by hand, choosing every cloth with care, and fitting until it's right.</p>
+          <p class="reveal">No templates. No shortcuts. Just patient work, natural fibres and a fit that moves with you.</p>
+          <div class="stats reveal">
+            <div><span class="stats__num">40+</span><span class="stats__label">Hours per bespoke suit</span></div>
+            <div><span class="stats__num">300</span><span class="stats__label">Cloths in our library</span></div>
+            <div><span class="stats__num">3</span><span class="stats__label">Fittings, minimum</span></div>
+          </div>
+        </div>
+        <div class="intro__stage" id="introStage">
+          <div class="intro__shadow" aria-hidden="true"></div>
+          <div class="intro__tilt">
+            <figure class="intro__float">
+              <img src="assets/images/atelier-bust.png" alt="Floating bespoke tailoring dress form draped in hand-basted muslin" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services section section--linen" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">Services</p>
+          <h2 class="section-title reveal">Three ways to be <em>well dressed</em></h2>
+        </div>
+        <div class="services__grid">
+          <article class="card reveal">
+            <div class="card__img"><img src="assets/images/suit-measure.jpg" alt="Camel pinstripe suit with a tape measure" loading="lazy" /></div>
+            <div class="card__body">
+              <span class="card__num">01</span>
+              <h3>Bespoke</h3>
+              <p>A garment built from nothing but your measurements. Hand-drafted pattern, multiple fittings, entirely your own.</p>
+              <span class="card__meta">From 8 weeks</span>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__img"><img src="assets/images/consultation.jpg" alt="Tailor holding a tape measure during a consultation" loading="lazy" /></div>
+            <div class="card__body">
+              <span class="card__num">02</span>
+              <h3>Made to Measure</h3>
+              <p>Our house patterns, refined to your body and style. Exceptional fit with a shorter turnaround.</p>
+              <span class="card__meta">From 4 weeks</span>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__img"><img src="assets/images/rail.jpg" alt="Rail of linen garments in neutral tones" loading="lazy" /></div>
+            <div class="card__body">
+              <span class="card__num">03</span>
+              <h3>Alterations</h3>
+              <p>Breathe new life into the pieces you love. Precise adjustments by the same hands that cut our bespoke work.</p>
+              <span class="card__meta">From 1 week</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS (dark) ============ -->
+    <section class="process section section--dark" id="process">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow reveal">The Process</p>
+            <h2 class="section-title reveal">From first measure<br /><em>to final stitch</em></h2>
+          </div>
+          <p class="section-lead reveal">Every Kingsman garment follows the same unhurried journey — one that puts you, and the cloth, at the centre.</p>
+        </div>
+
+        <ol class="process__list">
+          <li class="step reveal">
+            <span class="step__num">I</span>
+            <h3>Consult</h3>
+            <p>We talk about how you live, what you wear and what you want to feel. Then we take over 25 measurements.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">II</span>
+            <h3>Draft</h3>
+            <p>Your pattern is drawn by hand on kraft paper — a blueprint that belongs to you alone.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">III</span>
+            <h3>Cut &amp; Baste</h3>
+            <p>The cloth is cut and loosely tacked together for your first fitting, so we can sculpt it on your frame.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">IV</span>
+            <h3>Fit &amp; Finish</h3>
+            <p>Refinement over successive fittings, then hand-finishing: buttonholes, pressing and the final details.</p>
+          </li>
+        </ol>
+
+        <div class="process__gallery">
+          <figure class="reveal"><img src="assets/images/pic1.jpg" alt="Tailor cutting dark charcoal suiting fabric along chalk pattern lines with shears" loading="lazy" /></figure>
+          <figure class="reveal"><img src="assets/images/sewing.jpg" alt="Tailor threading a bobbin at an industrial sewing machine" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FABRICS ============ -->
+    <section class="fabrics section" id="fabrics">
+      <div class="container fabrics__grid">
+        <figure class="fabrics__media reveal">
+          <img src="assets/images/fabrics.jpg" alt="Hands fanning through linen fabric swatches" loading="lazy" />
+        </figure>
+        <div class="fabrics__text">
+          <p class="eyebrow reveal">The Cloth</p>
+          <h2 class="section-title reveal">Natural fibres,<br /><em>chosen by touch</em></h2>
+          <p class="reveal">Our library holds hundreds of cloths from respected mills — selected for how they drape, breathe and age.</p>
+          <ul class="swatches reveal" role="tablist" aria-label="Fabric families">
+            <li role="presentation">
+              <button type="button" class="swatch-btn" role="tab" aria-controls="fabricPanel" aria-selected="true" data-fabric="worsted-wool">
+                <span class="swatch" style="--c:#C49A6C"></span>Worsted Wool<span class="swatch-btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="swatch-btn" role="tab" aria-controls="fabricPanel" aria-selected="false" data-fabric="irish-linen">
+                <span class="swatch" style="--c:#E9DFD1"></span>Irish Linen<span class="swatch-btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="swatch-btn" role="tab" aria-controls="fabricPanel" aria-selected="false" data-fabric="brushed-cotton">
+                <span class="swatch" style="--c:#8A4B2A"></span>Brushed Cotton<span class="swatch-btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="swatch-btn" role="tab" aria-controls="fabricPanel" aria-selected="false" data-fabric="cashmere-blend">
+                <span class="swatch" style="--c:#2E211A"></span>Cashmere Blend<span class="swatch-btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="swatch-btn" role="tab" aria-controls="fabricPanel" aria-selected="false" data-fabric="sea-island-cotton">
+                <span class="swatch" style="--c:#F6F1EA"></span>Sea Island Cotton<span class="swatch-btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="swatch-btn" role="tab" aria-controls="fabricPanel" aria-selected="false" data-fabric="tropical-wool">
+                <span class="swatch" style="--c:#2F4C7E"></span>Tropical Wool<span class="swatch-btn__arrow" aria-hidden="true">→</span>
+              </button>
+            </li>
+          </ul>
+          <div class="fabric-panel reveal" id="fabricPanel" role="tabpanel" aria-live="polite">
+            <div class="fabric-panel__head">
+              <div class="fabric-panel__chip" id="fabricChip" data-weave="twill" style="--c:#C49A6C" aria-hidden="true"></div>
+              <div>
+                <p class="fabric-panel__meta" id="fabricMeta">Biella, Italy · 270 g/m² · Super 130s</p>
+                <h3 class="fabric-panel__title" id="fabricTitle">Worsted Wool</h3>
+              </div>
+            </div>
+            <p class="fabric-panel__desc" id="fabricDesc">Tightly spun from long-staple fleece for a crisp, resilient drape and clean matte finish. Holds a sharp crease from morning meetings through late dinners.</p>
+            <ul class="fabric-panel__tags" id="fabricTags">
+              <li>All-Season</li>
+              <li>Structured Drape</li>
+              <li>Suits &amp; Trousers</li>
+            </ul>
+            <button type="button" class="fabric-panel__cta" id="fabricRequestBtn">Request Worsted Wool at your fitting →</button>
+          </div>
+          <a href="#booking" class="link-arrow reveal">Explore the cloth library in person</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="reviews section section--linen" id="reviews">
+      <div class="tape" aria-hidden="true">
+        <div class="tape__nums">
+          <span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="reviews__head">
+          <p class="eyebrow reveal">Client Reviews</p>
+          <h2 class="section-title reveal">Words from <em>the fitting room</em></h2>
+          <p class="reviews__summary reveal"><span class="reviews__stars" aria-hidden="true">★★★★★</span> 4.9 / 5 across 140+ bespoke &amp; made-to-measure fittings</p>
+        </div>
+      </div>
+      <div class="reviews__marquee reveal">
+        <div class="reviews__track" id="reviewsTrack">
+          <div class="reviews__set">
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-james.jpg" alt="Portrait of James Reid" />
+              </figure>
+              <h3 class="review-card__name">James Reid</h3>
+              <p class="review-card__meta">Bespoke Three-Piece</p>
+              <blockquote class="review-card__quote">“The first suit I've owned that feels like it was made by someone who actually listened. Three fittings, and the shoulder line sits effortlessly.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-elena.jpg" alt="Portrait of Elena Morales" />
+              </figure>
+              <h3 class="review-card__name">Elena Morales</h3>
+              <p class="review-card__meta">Made to Measure</p>
+              <blockquote class="review-card__quote">“They guided me through the cloth books without rushing a single decision. My camel pinstripe suit drapes cleanly and feels light enough for all-day wear.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-daniel.jpg" alt="Portrait of Daniel Kim" />
+              </figure>
+              <h3 class="review-card__name">Daniel Kim</h3>
+              <p class="review-card__meta">Wedding Bespoke</p>
+              <blockquote class="review-card__quote">“From the first pencil sketch on kraft paper to the final pressing two days before our wedding, every detail felt personal. Easily the finest garment in my wardrobe.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-marcus.jpg" alt="Portrait of Marcus Thorne" />
+              </figure>
+              <h3 class="review-card__name">Marcus Thorne</h3>
+              <p class="review-card__meta">Irish Linen Suit</p>
+              <blockquote class="review-card__quote">“I wanted something unstructured for summer travel that still looked sharp at dinner. The unlined Irish linen jacket holds its shape far better than I expected.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-claire.jpg" alt="Portrait of Claire Hughes" />
+              </figure>
+              <h3 class="review-card__name">Claire Hughes</h3>
+              <p class="review-card__meta">Alterations</p>
+              <blockquote class="review-card__quote">“Brought in a vintage wool coat I was sure couldn't be saved. They reshaped the waist and sleeves by hand — it fits like it was drafted for me from day one.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-arthur.jpg" alt="Portrait of Arthur Brooks" />
+              </figure>
+              <h3 class="review-card__name">Arthur Brooks</h3>
+              <p class="review-card__meta">Cashmere Overcoat</p>
+              <blockquote class="review-card__quote">“Quiet, unhurried, and meticulous. You notice the difference in the hand-finished buttonholes and how cleanly the collar sits over a jacket.”</blockquote>
+            </article>
+          </div>
+          <div class="reviews__set" aria-hidden="true">
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-james.jpg" alt="Portrait of James Reid" />
+              </figure>
+              <h3 class="review-card__name">James Reid</h3>
+              <p class="review-card__meta">Bespoke Three-Piece</p>
+              <blockquote class="review-card__quote">“The first suit I've owned that feels like it was made by someone who actually listened. Three fittings, and the shoulder line sits effortlessly.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-elena.jpg" alt="Portrait of Elena Morales" />
+              </figure>
+              <h3 class="review-card__name">Elena Morales</h3>
+              <p class="review-card__meta">Made to Measure</p>
+              <blockquote class="review-card__quote">“They guided me through the cloth books without rushing a single decision. My camel pinstripe suit drapes cleanly and feels light enough for all-day wear.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-daniel.jpg" alt="Portrait of Daniel Kim" />
+              </figure>
+              <h3 class="review-card__name">Daniel Kim</h3>
+              <p class="review-card__meta">Wedding Bespoke</p>
+              <blockquote class="review-card__quote">“From the first pencil sketch on kraft paper to the final pressing two days before our wedding, every detail felt personal. Easily the finest garment in my wardrobe.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-marcus.jpg" alt="Portrait of Marcus Thorne" />
+              </figure>
+              <h3 class="review-card__name">Marcus Thorne</h3>
+              <p class="review-card__meta">Irish Linen Suit</p>
+              <blockquote class="review-card__quote">“I wanted something unstructured for summer travel that still looked sharp at dinner. The unlined Irish linen jacket holds its shape far better than I expected.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-claire.jpg" alt="Portrait of Claire Hughes" />
+              </figure>
+              <h3 class="review-card__name">Claire Hughes</h3>
+              <p class="review-card__meta">Alterations</p>
+              <blockquote class="review-card__quote">“Brought in a vintage wool coat I was sure couldn't be saved. They reshaped the waist and sleeves by hand — it fits like it was drafted for me from day one.”</blockquote>
+            </article>
+            <article class="review-card">
+              <figure class="review-card__avatar">
+                <img src="assets/images/client-arthur.jpg" alt="Portrait of Arthur Brooks" />
+              </figure>
+              <h3 class="review-card__name">Arthur Brooks</h3>
+              <p class="review-card__meta">Cashmere Overcoat</p>
+              <blockquote class="review-card__quote">“Quiet, unhurried, and meticulous. You notice the difference in the hand-finished buttonholes and how cleanly the collar sits over a jacket.”</blockquote>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOOKBOOK ============ -->
+    <section class="lookbook section" id="lookbook">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow reveal">Lookbook</p>
+            <h2 class="section-title reveal">Inside the <em>atelier</em></h2>
+          </div>
+          <p class="section-lead reveal">A glimpse behind the curtain — the people, tools and moments that shape every garment.</p>
+        </div>
+        <div class="lookbook__grid">
+          <figure class="lb lb--tall reveal"><img src="assets/images/drafting-team.jpg" alt="Tailors working together at the cutting table" loading="lazy" /></figure>
+          <figure class="lb lb--wide reveal"><img src="assets/images/swatches.jpg" alt="Choosing fabric swatches over reference images" loading="lazy" /></figure>
+          <figure class="lb reveal"><img src="assets/images/packaging.jpg" alt="Finished garment in a gift box with a kraft tag" loading="lazy" /></figure>
+          <figure class="lb reveal"><img src="assets/images/lookbook-planning.jpg" alt="Hands measuring across lookbook prints" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING ============ -->
+    <section class="booking section section--dark" id="booking">
+      <div class="container booking__grid">
+        <div class="booking__text">
+          <p class="eyebrow reveal">Book a Fitting</p>
+          <h2 class="section-title reveal">Let's begin with<br /><em>a conversation</em></h2>
+          <p class="reveal">Appointments last around an hour. Come as you are — bring a garment you love, or simply an idea.</p>
+          <dl class="contact reveal">
+            <div><dt>Visit</dt><dd>12 Tailor's Row, Studio 3</dd></div>
+            <div><dt>Hours</dt><dd>Tue – Sat · 10:00 – 18:00</dd></div>
+            <div><dt>Call</dt><dd><a href="tel:+000000000">+00 000 000 000</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:atelier@kingsman.com">atelier@kingsman.com</a></dd></div>
+          </dl>
+        </div>
+        <form class="form reveal" id="bookingForm" novalidate>
+          <div class="form__row">
+            <label>Name<input type="text" name="name" required autocomplete="name" /></label>
+            <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+          </div>
+          <div class="form__row">
+            <label>Service
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Bespoke</option>
+                <option>Made to Measure</option>
+                <option>Alterations</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>Preferred date<input type="date" name="date" /></label>
+          </div>
+          <label>Tell us a little about what you have in mind<textarea name="message" rows="4"></textarea></label>
+          <button type="submit" class="btn btn--light">Request Appointment</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#top" class="logo logo--footer"><span class="logo__mark">K</span><span class="logo__word">Kingsman</span></a>
+      <p class="footer__tag">Modern heritage tailoring. Cut by hand, made for you.</p>
+      <nav class="footer__links" aria-label="Social">
+        <a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Journal</a>
+      </nav>
+      <p class="footer__copy">© <span id="year"></span> Kingsman Atelier</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
