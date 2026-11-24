@@ -7,7 +7,7 @@
   <meta name="description" content="Kingsman is a modern heritage tailoring atelier. Bespoke suits, made-to-measure garments and expert alterations, crafted by hand." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,7 +16,7 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#top" class="logo" aria-label="Kingsman home">
-        <span class="logo__mark">K</span>
+        <span class="logo__mark"><span class="logo__letter">K</span></span>
         <span class="logo__word">Kingsman</span>
       </a>
       <nav class="nav" id="nav" aria-label="Primary">
@@ -24,7 +24,7 @@
         <a href="#process">Process</a>
         <a href="#fabrics">Fabrics</a>
         <a href="#lookbook">Lookbook</a>
-        <a href="#booking" class="btn btn--small">Book a Fitting</a>
+        <a href="#booking" class="btn btn--small" data-open-booking>Book a Fitting</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
@@ -44,7 +44,7 @@
         <h1 class="hero__title reveal">Cut by hand.<br /><em>Made for you.</em></h1>
         <p class="hero__lead reveal">A modern heritage atelier where every garment begins with a conversation, a tape measure and a sharp pencil.</p>
         <div class="hero__actions reveal">
-          <a href="#booking" class="btn">Book a Fitting</a>
+          <a href="#booking" class="btn" data-open-booking>Book a Fitting</a>
           <a href="#process" class="btn btn--ghost">Our Process</a>
         </div>
       </div>
@@ -159,8 +159,8 @@
     <!-- ============ FABRICS ============ -->
     <section class="fabrics section" id="fabrics">
       <div class="container fabrics__grid">
-        <figure class="fabrics__media reveal">
-          <img src="assets/images/fabrics.jpg" alt="Hands fanning through linen fabric swatches" loading="lazy" />
+        <figure class="fabrics__media reveal" id="fabricMedia">
+          <img class="is-active" src="assets/images/fabrics.jpg" alt="Hands fanning through linen fabric swatches" loading="lazy" />
         </figure>
         <div class="fabrics__text">
           <p class="eyebrow reveal">The Cloth</p>
@@ -214,7 +214,7 @@
             </ul>
             <button type="button" class="fabric-panel__cta" id="fabricRequestBtn">Request Worsted Wool at your fitting →</button>
           </div>
-          <a href="#booking" class="link-arrow reveal">Explore the cloth library in person</a>
+          <a href="#booking" class="link-arrow reveal" data-open-booking>Explore the cloth library in person</a>
         </div>
       </div>
     </section>
@@ -400,7 +400,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#top" class="logo logo--footer"><span class="logo__mark">K</span><span class="logo__word">Kingsman</span></a>
+      <a href="#top" class="logo logo--footer"><span class="logo__mark"><span class="logo__letter">K</span></span><span class="logo__word">Kingsman</span></a>
       <p class="footer__tag">Modern heritage tailoring. Cut by hand, made for you.</p>
       <nav class="footer__links" aria-label="Social">
         <a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Journal</a>
@@ -408,6 +408,48 @@
       <p class="footer__copy">© <span id="year"></span> Kingsman Atelier</p>
     </div>
   </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="booking-modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle" aria-hidden="true">
+    <div class="booking-modal__scroll">
+      <span class="booking-modal__rod booking-modal__rod--top" aria-hidden="true"></span>
+      <div class="booking-modal__dialog" tabindex="-1">
+        <button type="button" class="booking-modal__close" id="bookingModalClose" aria-label="Close appointment dialog">
+          <span></span><span></span>
+        </button>
+        <div class="booking-modal__head">
+          <p class="eyebrow">Private Appointment</p>
+          <h2 class="booking-modal__title" id="bookingModalTitle">Request an <em>appointment</em></h2>
+          <p class="booking-modal__lead">Appointments last around an hour. Share a few details and our tailors will confirm your fitting.</p>
+        </div>
+        <form class="form form--modal" id="modalBookingForm" novalidate>
+          <div class="form__row">
+            <label>Name<input type="text" name="name" required autocomplete="name" /></label>
+            <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+          </div>
+          <div class="form__row">
+            <label>Service
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Bespoke</option>
+                <option>Made to Measure</option>
+                <option>Alterations</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>Preferred date<input type="date" name="date" /></label>
+          </div>
+          <label>Tell us a little about what you have in mind<textarea name="message" rows="3"></textarea></label>
+          <div class="booking-modal__footer">
+            <button type="submit" class="btn btn--light">Request Appointment</button>
+            <p class="booking-modal__hours">Tue – Sat · 10:00 – 18:00</p>
+          </div>
+          <p class="form__status" id="modalFormStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <span class="booking-modal__rod booking-modal__rod--bottom" aria-hidden="true"></span>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

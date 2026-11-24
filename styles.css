@@ -142,12 +142,38 @@ em { font-style: italic; color: var(--cognac); }
 .header.is-scrolled::before { opacity: 1; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; }
 
-.logo { display: inline-flex; align-items: center; gap: 0.75rem; }
+.logo { display: inline-flex; align-items: center; gap: 1.05rem; }
 .logo__mark {
-  width: 2.4rem; height: 2.4rem;
+  position: relative;
+  width: 2.2rem; height: 2.2rem;
   display: grid; place-items: center;
   border: 1px solid currentColor;
-  font-family: var(--serif); font-size: 1.4rem; font-style: italic;
+  font-family: var(--serif); font-size: 1.35rem; font-style: italic;
+}
+.logo__mark::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--camel);
+  opacity: 0.9;
+  transform: rotate(45deg);
+  pointer-events: none;
+  transition: transform 0.7s var(--ease), opacity 0.4s var(--ease);
+}
+.logo:hover .logo__mark::after {
+  transform: rotate(135deg);
+  opacity: 1;
+}
+.logo__letter {
+  display: inline-block;
+  font-family: "Berkshire Swash", fantasy;
+  font-size: 1.45rem;
+  font-style: normal;
+  line-height: 1;
+  transition: transform 0.8s var(--ease);
+}
+.logo:hover .logo__letter {
+  transform: rotate(360deg);
 }
 .logo__word { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; letter-spacing: 0.06em; }
 
@@ -306,7 +332,27 @@ em { font-style: italic; color: var(--cognac); }
 
 /* ---------- Fabrics ---------- */
 .fabrics__grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
-.fabrics__media { aspect-ratio: 5 / 4; overflow: hidden; }
+.fabrics__media {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background: var(--linen);
+}
+.fabrics__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.035);
+  transition: opacity 0.65s var(--ease), transform 0.85s var(--ease);
+  will-change: opacity, transform;
+}
+.fabrics__media img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
 .fabrics__text > p:not(.eyebrow) { color: var(--muted); margin-bottom: 2rem; max-width: 30rem; }
 .swatches { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1.25rem; margin-bottom: 1.5rem; }
 .swatches li { display: block; }
@@ -561,6 +607,244 @@ em { font-style: italic; color: var(--cognac); }
 .footer__links a:hover { color: var(--camel); }
 .footer__copy { font-size: 0.78rem; }
 
+/* ---------- Booking Modal ---------- */
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  overflow-y: auto;
+  perspective: 1200px;
+  background: rgba(24, 17, 13, 0.34);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.65s var(--ease) 0.25s, visibility 0s linear 0.9s;
+}
+.booking-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.6s var(--ease), visibility 0s linear 0s;
+}
+.booking-modal__scroll {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: auto;
+}
+.booking-modal__rod {
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  height: 2px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(196, 154, 108, 0.2) 0%,
+    var(--camel) 12%,
+    rgba(246, 241, 234, 0.85) 50%,
+    var(--camel) 88%,
+    rgba(196, 154, 108, 0.2) 100%
+  );
+  box-shadow: 0 0 12px rgba(196, 154, 108, 0.45);
+  opacity: 0;
+  transform: scaleX(0.86);
+  transition:
+    top 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    bottom 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.72s var(--ease),
+    opacity 0.5s var(--ease) 0.25s;
+}
+.booking-modal__rod::before,
+.booking-modal__rod::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--camel);
+  box-shadow: 0 0 6px rgba(196, 154, 108, 0.55);
+  transform: translateY(-50%) rotate(45deg);
+}
+.booking-modal__rod::before { left: 0; }
+.booking-modal__rod::after { right: 0; }
+.booking-modal__rod--top { top: 50%; }
+.booking-modal__rod--bottom { bottom: 50%; }
+.booking-modal.is-open .booking-modal__rod {
+  opacity: 0.92;
+  transform: scaleX(1);
+  transition:
+    top 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    bottom 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s var(--ease),
+    opacity 0.55s var(--ease);
+}
+.booking-modal.is-open .booking-modal__rod--top { top: -1px; }
+.booking-modal.is-open .booking-modal__rod--bottom { bottom: -1px; }
+.booking-modal__dialog {
+  position: relative;
+  width: 100%;
+  padding: clamp(2.25rem, 5vw, 3.5rem);
+  color: var(--ivory);
+  background: linear-gradient(
+    145deg,
+    rgba(46, 33, 26, 0.54) 0%,
+    rgba(32, 22, 17, 0.44) 55%,
+    rgba(46, 33, 26, 0.58) 100%
+  );
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  border: 1px solid rgba(196, 154, 108, 0.38);
+  border-radius: 2px;
+  box-shadow:
+    0 28px 70px rgba(15, 10, 7, 0.42),
+    inset 0 1px 0 rgba(246, 241, 234, 0.22),
+    inset 0 -1px 0 rgba(196, 154, 108, 0.16);
+  text-shadow: 0 1px 8px rgba(18, 12, 8, 0.25);
+  opacity: 0;
+  clip-path: inset(50% -2px 50% -2px);
+  transform: rotateX(6deg) scaleX(0.985);
+  transform-origin: center center;
+  will-change: clip-path, opacity, transform;
+  transition:
+    clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s var(--ease),
+    opacity 0.45s var(--ease) 0.35s;
+}
+.booking-modal__dialog::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(196, 154, 108, 0.24);
+  pointer-events: none;
+}
+.booking-modal__dialog::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, var(--camel), var(--camel)) top left / 18px 1.5px no-repeat,
+    linear-gradient(to bottom, var(--camel), var(--camel)) top left / 1.5px 18px no-repeat,
+    linear-gradient(to left, var(--camel), var(--camel)) top right / 18px 1.5px no-repeat,
+    linear-gradient(to bottom, var(--camel), var(--camel)) top right / 1.5px 18px no-repeat,
+    linear-gradient(to right, var(--camel), var(--camel)) bottom left / 18px 1.5px no-repeat,
+    linear-gradient(to top, var(--camel), var(--camel)) bottom left / 1.5px 18px no-repeat,
+    linear-gradient(to left, var(--camel), var(--camel)) bottom right / 18px 1.5px no-repeat,
+    linear-gradient(to top, var(--camel), var(--camel)) bottom right / 1.5px 18px no-repeat;
+}
+.booking-modal.is-open .booking-modal__dialog {
+  opacity: 1;
+  clip-path: inset(-2px -2px -2px -2px);
+  transform: none;
+  transition:
+    clip-path 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s var(--ease);
+}
+.booking-modal__close {
+  position: absolute;
+  top: clamp(1.35rem, 2.8vw, 1.85rem);
+  right: clamp(1.35rem, 2.8vw, 1.85rem);
+  width: 2.35rem;
+  height: 2.35rem;
+  background: rgba(246, 241, 234, 0.04);
+  border: 1px solid rgba(196, 154, 108, 0.42);
+  color: var(--ivory);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease), transform 0.4s var(--ease), opacity 0.3s var(--ease);
+}
+.booking-modal.is-open .booking-modal__close {
+  opacity: 1;
+  transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease), transform 0.4s var(--ease), opacity 0.65s var(--ease) 0.38s;
+}
+.booking-modal__close span {
+  position: absolute;
+  width: 1rem;
+  height: 1px;
+  background: currentColor;
+}
+.booking-modal__close span:first-child { transform: rotate(45deg); }
+.booking-modal__close span:last-child { transform: rotate(-45deg); }
+.booking-modal__close:hover,
+.booking-modal__close:focus-visible {
+  border-color: var(--camel);
+  background: rgba(196, 154, 108, 0.14);
+  transform: rotate(90deg);
+  outline: none;
+}
+.booking-modal__head {
+  padding-right: 2.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.25);
+}
+.booking-modal__head,
+.form--modal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s var(--ease), transform 0.35s var(--ease);
+}
+.booking-modal.is-open .booking-modal__head {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.75s var(--ease) 0.36s, transform 0.85s var(--ease) 0.36s;
+}
+.booking-modal.is-open .form--modal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.75s var(--ease) 0.52s, transform 0.85s var(--ease) 0.52s;
+}
+.booking-modal__head .eyebrow {
+  color: var(--camel);
+  margin-bottom: 0.75rem;
+}
+.booking-modal__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 0.65rem;
+}
+.booking-modal__title em { color: var(--camel); }
+.booking-modal__lead {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(246, 241, 234, 0.74);
+  max-width: 30rem;
+}
+.form--modal {
+  padding: 0;
+  border: 0;
+  gap: 1.3rem;
+}
+.form--modal input,
+.form--modal select,
+.form--modal textarea {
+  border-bottom-color: rgba(246, 241, 234, 0.42);
+}
+.booking-modal__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+.booking-modal__footer .btn { margin-top: 0; }
+.booking-modal__hours {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 234, 0.62);
+}
+
 /* ---------- Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
@@ -570,6 +854,14 @@ em { font-style: italic; color: var(--cognac); }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero__media img, .hero__scroll span, .intro__float, .intro__shadow::after { animation: none; }
   .intro__tilt { transform: rotateX(4deg) rotateY(-8deg) rotateZ(-7deg); }
+  .fabrics__media img { transition: none; transform: none; }
+  .logo__mark::after, .logo__letter { transition: none; }
+  .booking-modal,
+  .booking-modal__dialog,
+  .booking-modal__rod,
+  .booking-modal__head,
+  .form--modal,
+  .booking-modal__close { transition: none; transform: none; clip-path: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -623,4 +915,6 @@ em { font-style: italic; color: var(--cognac); }
   .lb--tall { grid-row: span 1; }
   .lb--wide { grid-column: span 1; }
   .footer__inner { grid-template-columns: 1fr; gap: 1.25rem; text-align: left; }
+  .booking-modal__dialog { padding: 2.1rem 1.6rem; }
+  .booking-modal__footer { flex-direction: column; align-items: flex-start; }
 }
